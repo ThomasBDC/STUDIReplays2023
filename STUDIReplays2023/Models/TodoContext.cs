@@ -9,6 +9,8 @@ namespace STUDIReplays2023.Models
         {
         }
 
+        //Liste des tables de mon contexte
         public DbSet<TodoItem> TodoItems { get; set; } = null!;
+        public DbSet<Replay> Replays { get; set; } = null!;
     }
 }
