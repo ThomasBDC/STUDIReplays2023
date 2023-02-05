@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<TodoContext>(opt =>
+builder.Services.AddDbContext<ApplicationDbContext>(opt =>
     opt.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=STUDIReplays2023;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
 
 builder.Services.AddCors(options =>

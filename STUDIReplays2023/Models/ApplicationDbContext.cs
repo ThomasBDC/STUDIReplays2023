@@ -2,15 +2,14 @@
 
 namespace STUDIReplays2023.Models
 {
-    public class TodoContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public TodoContext(DbContextOptions<TodoContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
            : base(options)
         {
         }
 
         //Liste des tables de mon contexte
-        public DbSet<TodoItem> TodoItems { get; set; } = null!;
         public DbSet<Replay> Replays { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
     }

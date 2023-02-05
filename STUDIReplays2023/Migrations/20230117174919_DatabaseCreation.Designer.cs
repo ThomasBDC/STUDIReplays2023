@@ -10,7 +10,7 @@ using STUDIReplays2023.Models;
 
 namespace STUDIReplays2023.Migrations
 {
-    [DbContext(typeof(TodoContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20230117174919_DatabaseCreation")]
     partial class DatabaseCreation
     {

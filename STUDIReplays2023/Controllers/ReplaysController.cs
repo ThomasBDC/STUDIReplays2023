@@ -13,9 +13,9 @@ namespace STUDIReplays2023.Controllers
     [ApiController]
     public class ReplaysController : ControllerBase
     {
-        private readonly TodoContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ReplaysController(TodoContext context)
+        public ReplaysController(ApplicationDbContext context)
         {
             _context = context;
         }

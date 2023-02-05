@@ -11,7 +11,7 @@ using STUDIReplays2023.Models;
 
 namespace STUDIReplays2023.Migrations
 {
-    [DbContext(typeof(TodoContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20230117180433_addReplaysTable")]
     partial class addReplaysTable
     {

@@ -13,9 +13,9 @@ namespace STUDIReplays2023.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly TodoContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public CategoriesController(TodoContext context)
+        public CategoriesController(ApplicationDbContext context)
         {
             _context = context;
         }

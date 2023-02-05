@@ -10,7 +10,7 @@ using STUDIReplays2023.Models;
 
 namespace STUDIReplays2023.Migrations
 {
-    [DbContext(typeof(TodoContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class TodoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -69,26 +69,6 @@ namespace STUDIReplays2023.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Replays");
-                });
-
-            modelBuilder.Entity("STUDIReplays2023.Models.TodoItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("IsComplete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TodoItems");
                 });
 #pragma warning restore 612, 618
         }

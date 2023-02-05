@@ -12,8 +12,8 @@ using STUDIReplays2023.Models;
 namespace STUDIReplays2023.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230124175527_AddCategoryModel")]
-    partial class AddCategoryModel
+    [Migration("20230205161043_deleteTodoItems")]
+    partial class deleteTodoItems
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,26 +71,6 @@ namespace STUDIReplays2023.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Replays");
-                });
-
-            modelBuilder.Entity("STUDIReplays2023.Models.TodoItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("IsComplete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TodoItems");
                 });
 #pragma warning restore 612, 618
         }
