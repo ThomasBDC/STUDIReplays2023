@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using STUDIReplays2023.Models;
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore.Proxies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -32,6 +35,22 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -43,8 +62,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseAuthentication();
 
+app.UseAuthorization();
 app.MapControllers();
 app.UseCors(MyAllowSpecificOrigins);
 app.Run();
