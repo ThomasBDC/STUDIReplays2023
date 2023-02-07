@@ -8,7 +8,7 @@
         public DateTime DateSortie { get; set; }
         public string Url { get; set; }
 
-        public virtual List<Category> CategoriesLiees { get; set; }
+        public virtual List<Category>? CategoriesLiees { get; set; }
     }
 
     //Liaison avec playlists
