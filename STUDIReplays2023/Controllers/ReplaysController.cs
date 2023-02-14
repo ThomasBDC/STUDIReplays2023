@@ -12,6 +12,7 @@ namespace STUDIReplays2023.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="Administrator")]
     public class ReplaysController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
